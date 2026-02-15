@@ -1,1 +1,156 @@
-asdas
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore.id - Jelajahi Dunia</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Menggunakan Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fas fa-paper-plane" style="font-size: 1.5rem; color: var(--secondary-color);"></i> Explore<span>.id</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Beranda</a>
+      <a href="#">Destinasi</a>
+      <a href="#">Paket Tour</a>
+      <a href="#">Tentang Kami</a>
+      <button id="theme-toggle" class="theme-btn" title="Ganti Tema">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Temukan Surga Tersembunyi di Indonesia</h1>
+      <p>Rencanakan liburan impian Anda dengan mudah. Dari pegunungan berkabut hingga pantai tropis yang memukau.</p>
+      <button class="cta-btn" onclick="document.getElementById('chat-toggle-btn').click()">Mulai Petualangan</button>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features">
+    <button class="carousel-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+    
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <!-- Card 1 -->
+        <div class="feature-card" data-detail="Saksikan Golden Sunrise yang memukau, jelajahi Kawah Bromo, Pasir Berbisik, dan Bukit Teletubbies. Termasuk Jeep dan dokumentasi. Harga mulai Rp 350rb/pax.">
+          <div class="badge promo">Promo</div>
+          <i class="fas fa-mountain"></i>
+          <h3>Open Trip Bromo</h3>
+          <p>Keindahan matahari terbit di Bromo.</p>
+          <div class="price">Rp 350rb/pax</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="feature-card" data-detail="Nikmati pantai Kuta, pura Uluwatu, dan budaya Ubud dengan layanan private car dan hotel bintang 4. Cocok untuk honeymoon atau keluarga. Harga mulai Rp 2.5jt/pax.">
+          <div class="badge best-seller">Best Seller</div>
+          <i class="fas fa-umbrella-beach"></i>
+          <h3>Private Trip Bali</h3>
+          <p>Liburan eksklusif 3H2M di Pulau Dewata.</p>
+          <div class="price">Rp 2.5jt/pax</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="feature-card" data-detail="Tinggal di kapal Phinisi mewah, trekking di Pulau Padar, berenang dengan Manta Ray, dan melihat Komodo di habitat aslinya. Harga mulai Rp 3.5jt/pax.">
+          <i class="fas fa-ship"></i>
+          <h3>Sailing Komodo</h3>
+          <p>Petualangan laut 4H3M di Labuan Bajo.</p>
+          <div class="price">Rp 3.5jt/pax</div>
+        </div>
+        <!-- Card 4 -->
+        <div class="feature-card" data-detail="Menyelam di spot terbaik dunia, mengunjungi Piaynemo, dan Wayag. Pengalaman tak terlupakan di ujung timur Indonesia. Harga mulai Rp 5.5jt/pax.">
+          <i class="fas fa-water"></i>
+          <h3>Explore Raja Ampat</h3>
+          <p>Surga bawah laut terbaik dunia.</p>
+          <div class="price">Rp 5.5jt/pax</div>
+        </div>
+        <!-- Card 5 -->
+        <div class="feature-card" data-detail="Kunjungi Candi Borobudur, Prambanan, Keraton Yogyakarta, dan nikmati kuliner khas Gudeg. Paket lengkap termasuk transportasi. Harga mulai Rp 1.2jt/pax.">
+          <div class="badge promo">Promo</div>
+          <i class="fas fa-monument"></i>
+          <h3>Wisata Yogyakarta</h3>
+          <p>Jelajahi budaya dan sejarah Jawa.</p>
+          <div class="price">Rp 1.2jt/pax</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+  </section>
+
+  <!-- Chat Widget Floating -->
+  <button id="chat-toggle-btn" class="chat-toggle-btn">
+    <i class="fas fa-robot"></i>
+  </button>
+
+  <div id="chat-widget" class="chat-widget hidden">
+    <div class="chat-header">
+      <span><i class="fas fa-globe-asia"></i> Travel Assistant</span>
+      <button id="chat-close-btn">&times;</button>
+    </div>
+    <div id="chat-box" class="chat-box"></div>
+    <form id="chat-form" class="chat-input-area">
+      <input type="text" id="user-input" placeholder="Mau liburan ke mana?" autocomplete="off" required />
+      <button type="submit"><i class="fas fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <!-- Modal Detail Layanan -->
+  <div id="service-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 id="modal-title">Judul Layanan</h2>
+      <p id="modal-desc">Deskripsi layanan akan muncul di sini.</p>
+      <button class="cta-btn" style="margin-top: 20px;" onclick="document.getElementById('service-modal').classList.add('hidden'); document.getElementById('chat-toggle-btn').click()">Tanya Lebih Lanjut</button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>Explore.id</h3>
+        <p>Platform travel terdepan yang menghubungkan Anda dengan keindahan alam Indonesia dan dunia. Jadikan setiap perjalanan cerita yang tak terlupakan.</p>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-section links">
+        <h3>Tautan Cepat</h3>
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Destinasi Populer</a></li>
+          <li><a href="#">Promo Tiket</a></li>
+          <li><a href="#">Blog Travel</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h3>Hubungi Kami</h3>
+        <p><i class="fas fa-envelope"></i> hello@explore.id</p>
+        <p><i class="fas fa-phone-alt"></i> +62 812 3456 7890</p>
+        <p><i class="fas fa-map-marker-alt"></i> Jl. Petualang No. 1, Bali</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 Explore.id. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> by Hacktiv8 Student
+    </div>
+  </footer>
+
+  <!-- Notification Sound -->
+  <audio id="notification-sound" src="https://www.soundjay.com/button/sounds/button-20.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
